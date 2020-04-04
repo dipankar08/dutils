@@ -1,8 +1,7 @@
 {
   "name": "node-dutils",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "ulitilies",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +18,7 @@
   "dependencies": {
     "@types/node": "^13.11.0",
     "color-logs": "^0.6.1"
-  }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts"
 }
