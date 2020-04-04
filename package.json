@@ -1,0 +1,23 @@
+{
+  "name": "node-dutils",
+  "version": "1.0.2",
+  "description": "ulitilies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dipankar08/dutils.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dipankar08/dutils/issues"
+  },
+  "homepage": "https://github.com/dipankar08/dutils#readme",
+  "dependencies": {
+    "@types/node": "^13.11.0",
+    "color-logs": "^0.6.1"
+  }
+}
