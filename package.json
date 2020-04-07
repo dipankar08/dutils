@@ -1,6 +1,6 @@
 {
   "name": "node-dutils",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "ulitilies",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +17,12 @@
   "homepage": "https://github.com/dipankar08/dutils#readme",
   "dependencies": {
     "@types/node": "^13.11.0",
-    "color-logs": "^0.6.1"
+    "color-logs": "^0.6.1",
+    "node-fetch": "^2.6.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5",
+    "underscore": "^1.10.2",
+    "winston": "^3.2.1"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts"
