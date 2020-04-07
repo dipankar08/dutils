@@ -1,3 +1,4 @@
+tsc
 git pull
 tsfmt -r src/**/*.ts
 git add --all
