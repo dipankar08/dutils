@@ -4,4 +4,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./dlog"));
+__export(require("./dtelemetry"));
+__export(require("./dtypes"));
+__export(require("./dassert"));
 //# sourceMappingURL=index.js.map
