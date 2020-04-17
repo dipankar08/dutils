@@ -19,6 +19,7 @@ export namespace DTelemetry {
         res['type'] = 'action';
         res['tag'] = tag
         let obj = _.extend(res, extra)
+        DLog.d("Doing markAction", obj)
         pump('http://simplestore.dipankar.co.in/api/_analytics/action', obj)
     }
 
@@ -28,7 +29,7 @@ export namespace DTelemetry {
     }
 
     export async function markException(e: Error, extra: Object = {}) {
-        let errObj = { type: "exception", "error": e.name, location: 'Please see the stack', stack: e.stack };
+        let errObj = { type: "exception", "error": e.name, location: e.stack.split("\n")[1].trim(), stack: e.stack };
         let obj = _.extend(errObj, extra)
         pump('http://simplestore.dipankar.co.in/api/_analytics/exception', obj)
     }
@@ -70,6 +71,7 @@ export namespace DTelemetry {
     }
 
     async function pump(url: String, data: Object) {
+        DLog.d(`pump called:${JSON.stringify(data)}`);
         if (session == null) {
             pendingItems.push({ url: url, data: data })
         } else {
@@ -91,6 +93,7 @@ export namespace DTelemetry {
                 DLog.d(result);
                 DLog.s(`Telemetry push success:${JSON.stringify(result)}`)
             } catch (e) {
+                DLog.e(`Telemetry Failed${JSON.stringify(e)}`);
                 DLog.ex(e);
             }
         }

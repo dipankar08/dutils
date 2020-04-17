@@ -13,6 +13,7 @@ var DTelemetry;
         res['type'] = 'action';
         res['tag'] = tag;
         let obj = _.extend(res, extra);
+        dlog_1.DLog.d("Doing markAction", obj);
         pump('http://simplestore.dipankar.co.in/api/_analytics/action', obj);
     }
     DTelemetry.markAction = markAction;
@@ -22,7 +23,7 @@ var DTelemetry;
     }
     DTelemetry.markHits = markHits;
     async function markException(e, extra = {}) {
-        let errObj = { type: "exception", "error": e.name, location: 'Please see the stack', stack: e.stack };
+        let errObj = { type: "exception", "error": e.name, location: e.stack.split("\n")[1].trim(), stack: e.stack };
         let obj = _.extend(errObj, extra);
         pump('http://simplestore.dipankar.co.in/api/_analytics/exception', obj);
     }
@@ -63,6 +64,7 @@ var DTelemetry;
         }
     }
     async function pump(url, data) {
+        dlog_1.DLog.d(`pump called:${JSON.stringify(data)}`);
         if (session == null) {
             pendingItems.push({ url: url, data: data });
         }
@@ -86,6 +88,7 @@ var DTelemetry;
                 dlog_1.DLog.s(`Telemetry push success:${JSON.stringify(result)}`);
             }
             catch (e) {
+                dlog_1.DLog.e(`Telemetry Failed${JSON.stringify(e)}`);
                 dlog_1.DLog.ex(e);
             }
         }
