@@ -123,6 +123,8 @@ function validate(key, val, rule) {
                     }
                 }
                 break;
+            // Wanna to add more validation rule.. Please keep adding here. 
+            // Please write UT before checkin.
         }
     }
     return true;

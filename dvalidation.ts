@@ -121,6 +121,8 @@ export function validate(key: string, val: any, rule: string): true | string {
                     }
                 }
                 break;
+            // Wanna to add more validation rule.. Please keep adding here. 
+            // Please write UT before checkin.
         }
     }
     return true;
