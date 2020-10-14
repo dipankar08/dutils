@@ -2,17 +2,17 @@
 // This will validate a value based on a list of rules.
 import _ from "underscore"
 
-export function throwIfNotFullValidation(obj: Object, rules: Object){
+export function throwIfNotFullValidation(obj: Object, rules: Object) {
     let res = fullValidation(obj, rules)
-    if(res != true){
-        throw(new Error(res))
+    if (res != true) {
+        throw (new Error(res))
     }
 }
 
-export function throwIfNotPartialValidation(obj: Object, rules: Object){
+export function throwIfNotPartialValidation(obj: Object, rules: Object) {
     let res = partialValidation(obj, rules)
-    if(res != true){
-        throw(new Error(res))
+    if (res != true) {
+        throw (new Error(res))
     }
 }
 
@@ -34,7 +34,7 @@ export function fullValidation(obj: Object, rules: Object) {
 // In partial validation, we check object to be validated by rules 
 // while considering the object might not enforce all the rules but
 // existing object items must holds rule. 
-export function partialValidation(obj:Object, rules:Object) {
+export function partialValidation(obj: Object, rules: Object) {
     if (obj && rules) {
         for (const [key, value] of Object.entries(obj)) {
             if (rules[key]) {
@@ -63,13 +63,13 @@ export function validate(key: string, val: any, rule: string): true | string {
         switch (r) {
             case 'required':
                 if (val == null || val == undefined) {
-                    return `Validation failed: ${key} is missing from input`
+                    return `Validation failed: The ${key} field is required`
                 }
                 if (_.isString(val) && val.length == 0) {
-                    return `Validation failed: ${key} Must not empty`
+                    return `Validation failed: The ${key} field must not empty`
                 }
                 if (_.isArray(val) && val.length == 0) {
-                    return `Validation failed: ${key} Must not empty`
+                    return `Validation failed: The ${key} field must not empty`
                 }
                 break;
             case 'string':
@@ -78,10 +78,13 @@ export function validate(key: string, val: any, rule: string): true | string {
                 }
                 break;
             case 'number':
+            case 'int':
+            case 'integer':
                 if (!_.isNumber(val)) {
                     return `Validation failed: ${key} must be a number`
                 }
                 break;
+
             case 'bool':
                 if (!_.isBoolean(val)) {
                     return `Validation failed: ${key} must be a boolean`
@@ -123,6 +126,13 @@ export function validate(key: string, val: any, rule: string): true | string {
                 break;
             // Wanna to add more validation rule.. Please keep adding here. 
             // Please write UT before checkin.
+        }
+        // Custom check
+        if (rule.startsWith('in:')) {
+            let in_rule = rule.replace('in:', '').split(",").map(x => x.trim()).filter(x => x.length > 0);
+            if (!_.contains(in_rule, val)) {
+                return `Validation failed: ${key} should be either of [${in_rule}]`
+            }
         }
     }
     return true;

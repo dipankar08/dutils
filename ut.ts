@@ -13,7 +13,13 @@ export class UT {
             DLog.s("Test pass")
             this.p_count++;
         } else {
-            DLog.e(`Test Fail: Observed:<${observed}>, expected:<${expected}>`)
+            
+            try{
+                throw( new Error("Failed"));
+            } catch(e){
+                let loc = e.stack.split("\n")[2];
+                DLog.e(`Test Fail: Observed:<${observed}>, expected:<${expected}> at ${loc.trim()}`)
+            }
             this.f_count++
         }
     }

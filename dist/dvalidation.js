@@ -65,13 +65,13 @@ function validate(key, val, rule) {
         switch (r) {
             case 'required':
                 if (val == null || val == undefined) {
-                    return `Validation failed: ${key} is missing from input`;
+                    return `Validation failed: The ${key} field is required`;
                 }
                 if (underscore_1.default.isString(val) && val.length == 0) {
-                    return `Validation failed: ${key} Must not empty`;
+                    return `Validation failed: The ${key} field must not empty`;
                 }
                 if (underscore_1.default.isArray(val) && val.length == 0) {
-                    return `Validation failed: ${key} Must not empty`;
+                    return `Validation failed: The ${key} field must not empty`;
                 }
                 break;
             case 'string':
@@ -80,6 +80,8 @@ function validate(key, val, rule) {
                 }
                 break;
             case 'number':
+            case 'int':
+            case 'integer':
                 if (!underscore_1.default.isNumber(val)) {
                     return `Validation failed: ${key} must be a number`;
                 }
@@ -125,6 +127,13 @@ function validate(key, val, rule) {
                 break;
             // Wanna to add more validation rule.. Please keep adding here. 
             // Please write UT before checkin.
+        }
+        // Custom check
+        if (rule.startsWith('in:')) {
+            let in_rule = rule.replace('in:', '').split(",").map(x => x.trim()).filter(x => x.length > 0);
+            if (!underscore_1.default.contains(in_rule, val)) {
+                return `Validation failed: ${key} should be either of [${in_rule}]`;
+            }
         }
     }
     return true;

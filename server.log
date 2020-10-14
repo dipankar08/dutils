@@ -78,3 +78,24 @@
 {"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: email must be email>, expected:<true>"}
 {"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: email must be email>, expected:<xx>"}
 {"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: tags must be a array>, expected:<xx>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: The x field is required>, expected:<Validation failed: x is missing from input>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: The x field must not empty>, expected:<Validation failed: x Must not empty>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: The x field must not empty>, expected:<Validation failed: x Must not empty>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: The roll field is required>, expected:<Validation failed: roll is missing from input>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of [1,2]>, expected:<true>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of [1,2]>, expected:<true>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of [1,2]>, expected:<true>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of [1,2]>, expected:<true>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of [1,2]>, expected:<true>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of [1,2]>, expected:<x should be either of [1,2]>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of [1,2]>, expected:<x should be either of [1,2]>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of [1,2]>, expected:<x should be either of [1,2]>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<true>, expected:<Validation failed: x should be either of [1,2]>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of 1,2>, expected:<Validation failed: x should be either of [1,2]>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of 1,2>, expected:<Validation failed: x should be either of [1,2]>"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<true>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:23:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of 1,2>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:24:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of 1,2>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:25:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<true>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:23:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of 1,2>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:24:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of 1,2>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:25:4)"}

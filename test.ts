@@ -16,13 +16,21 @@ ut.check(validate("x",'dutta@dii.com,hello@hello.com', 'list_of_email'), true);
 ut.check(validate("x",'dd@dd.com, hello', 'list_of_email'),"Validation failed: x must be list of email");
 ut.check(validate("x",'hello, dd@dd.com', 'list_of_email'),"Validation failed: x must be list of email");
 
-ut.check(validate("x",null, 'required'),"Validation failed: x is missing from input");
-ut.check(validate("x","", 'required'),"Validation failed: x Must not empty");
-ut.check(validate("x",[], 'required'),"Validation failed: x Must not empty");
+ut.check(validate("x",null, 'required'),"Validation failed: The x field is required");
+ut.check(validate("x","", 'required'),"Validation failed: The x field must not empty");
+ut.check(validate("x",[], 'required'),"Validation failed: The x field must not empty");
 ut.check(validate("x",[1,2], 'required'), true);
 
 ut.check(validate("x",1, 'number'),true);
+ut.check(validate("x",1, 'int'),true);
+ut.check(validate("x",1, 'integer'),true);
 ut.check(validate("x",'hello', 'number'),"Validation failed: x must be a number");
+
+
+ut.check(validate("x",'1', 'in:1,2'),true);
+ut.check(validate("x",'2', 'in:1,2'),true);
+ut.check(validate("x",'12', 'in:1,2'),'Validation failed: x should be either of [1,2]');
+ut.check(validate("x",null, 'in:1,2'),'Validation failed: x should be either of [1,2]');
 
 ut.check(validate("x",[1,2,3], 'array'), true);
 ut.check(validate("x",'hello', 'array'),"Validation failed: x must be a array");
@@ -85,7 +93,7 @@ ut.check(fullValidation({
 },{
     name:'required|string',
     roll:'required|string'
-}), "Validation failed: roll is missing from input");
+}), "Validation failed: The roll field is required");
 
 ut.check(partialValidation({
     'name':'dipankar',

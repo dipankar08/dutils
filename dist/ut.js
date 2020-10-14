@@ -13,7 +13,13 @@ class UT {
             this.p_count++;
         }
         else {
-            dlog_1.DLog.e(`Test Fail: Observed:<${observed}>, expected:<${expected}>`);
+            try {
+                throw (new Error("Failed"));
+            }
+            catch (e) {
+                let loc = e.stack.split("\n")[2];
+                dlog_1.DLog.e(`Test Fail: Observed:<${observed}>, expected:<${expected}> at ${loc.trim()}`);
+            }
             this.f_count++;
         }
     }
