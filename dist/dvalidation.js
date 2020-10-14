@@ -61,8 +61,8 @@ function validate(key, val, rule) {
         return true;
     }
     let rules = rule.split("|").map(x => x.trim());
-    for (var r of rules) {
-        switch (r) {
+    for (var rule of rules) {
+        switch (rule) {
             case 'required':
                 if (val == null || val == undefined) {
                     return `Validation failed: The ${key} field is required`;
@@ -149,15 +149,23 @@ function validate(key, val, rule) {
                     }
                 }
                 break;
+            default:
+                // Custom check
+                if (rule.startsWith('in:')) {
+                    if (!val) {
+                        continue;
+                    }
+                    let in_rule = rule.replace('in:', '').split(",").map(x => x.trim()).filter(x => x.length > 0);
+                    if (!underscore_1.default.contains(in_rule, val)) {
+                        return `Validation failed: ${key} should be either of [${in_rule}]`;
+                    }
+                }
+                else {
+                    return `Validation failed: Found Invalid Rule [${rule}]`;
+                }
+                break;
             // Wanna to add more validation rule.. Please keep adding here. 
             // Please write UT before checkin.
-        }
-        // Custom check
-        if (rule.startsWith('in:')) {
-            let in_rule = rule.replace('in:', '').split(",").map(x => x.trim()).filter(x => x.length > 0);
-            if (!underscore_1.default.contains(in_rule, val)) {
-                return `Validation failed: ${key} should be either of [${in_rule}]`;
-            }
         }
     }
     return true;

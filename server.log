@@ -101,3 +101,10 @@
 {"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: x should be either of 1,2>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:25:4)"}
 {"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: The x field is required>, expected:<#> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:24:4)"}
 {"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: The x field is required>, expected:<#> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:24:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<true>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:27:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: The x field is required>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:28:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<true>, expected:<Validation failed: The x field is required> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:29:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<true>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:29:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<true>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:29:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<true>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:29:4)"}
+{"level":"error","message":"[ERROR] Test Fail: Observed:<Validation failed: Found Invalid Rule [required|in:1,2]>, expected:<Validation failed: x should be either of [1,2]> at at Object.<anonymous> (/Users/dip/dipankar/dutils/dist/test.js:29:4)"}
