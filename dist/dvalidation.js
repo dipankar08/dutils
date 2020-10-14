@@ -75,33 +75,51 @@ function validate(key, val, rule) {
                 }
                 break;
             case 'string':
-                if (!underscore_1.default.isString(val)) {
+                if (!val) {
+                    continue;
+                }
+                if (val && !underscore_1.default.isString(val)) {
                     return `Validation failed: ${key} must be a string`;
                 }
                 break;
             case 'number':
             case 'int':
             case 'integer':
-                if (!underscore_1.default.isNumber(val)) {
+                if (!val) {
+                    continue;
+                }
+                if (val && !underscore_1.default.isNumber(val)) {
                     return `Validation failed: ${key} must be a number`;
                 }
                 break;
             case 'bool':
-                if (!underscore_1.default.isBoolean(val)) {
+                if (!val) {
+                    continue;
+                }
+                if (val && !underscore_1.default.isBoolean(val)) {
                     return `Validation failed: ${key} must be a boolean`;
                 }
                 break;
             case 'array':
-                if (!underscore_1.default.isArray(val)) {
+                if (!val) {
+                    continue;
+                }
+                if (val && !underscore_1.default.isArray(val)) {
                     return `Validation failed: ${key} must be a array`;
                 }
                 break;
             case 'object':
-                if (!underscore_1.default.isObject(val)) {
+                if (!val) {
+                    continue;
+                }
+                if (val && !underscore_1.default.isObject(val)) {
                     return `Validation failed: ${key} must be a object`;
                 }
                 break;
             case 'array_of_object':
+                if (!val) {
+                    continue;
+                }
                 if (!underscore_1.default.isArray(val)) {
                     return `Validation failed: ${key} must be a array of objects`;
                 }
@@ -112,12 +130,18 @@ function validate(key, val, rule) {
                 }
                 break;
             case 'email':
+                if (!val) {
+                    continue;
+                }
                 const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 if (!re.test(String(val).toLowerCase())) {
                     return `Validation failed: ${key} must be email`;
                 }
                 break;
             case 'list_of_email':
+                if (!val) {
+                    continue;
+                }
                 const re1 = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 for (var y of String(val).split(',').map(x => x.trim())) {
                     if (!re1.test(String(y).toLowerCase())) {

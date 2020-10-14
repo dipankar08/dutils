@@ -73,34 +73,52 @@ export function validate(key: string, val: any, rule: string): true | string {
                 }
                 break;
             case 'string':
-                if (!_.isString(val)) {
+                if(!val){
+                    continue;
+                }
+                if (val && !_.isString(val)) {
                     return `Validation failed: ${key} must be a string`
                 }
                 break;
             case 'number':
             case 'int':
             case 'integer':
-                if (!_.isNumber(val)) {
+                if(!val){
+                    continue;
+                }
+                if (val && !_.isNumber(val)) {
                     return `Validation failed: ${key} must be a number`
                 }
                 break;
 
             case 'bool':
-                if (!_.isBoolean(val)) {
+                if(!val){
+                    continue;
+                }
+                if (val && !_.isBoolean(val)) {
                     return `Validation failed: ${key} must be a boolean`
                 }
                 break;
             case 'array':
-                if (!_.isArray(val)) {
+                if(!val){
+                    continue;
+                }
+                if (val && !_.isArray(val)) {
                     return `Validation failed: ${key} must be a array`
                 }
                 break;
             case 'object':
-                if (!_.isObject(val)) {
+                if(!val){
+                    continue;
+                }
+                if (val && !_.isObject(val)) {
                     return `Validation failed: ${key} must be a object`
                 }
                 break;
             case 'array_of_object':
+                if(!val){
+                    continue;
+                }
                 if (!_.isArray(val)) {
                     return `Validation failed: ${key} must be a array of objects`
                 }
@@ -111,12 +129,18 @@ export function validate(key: string, val: any, rule: string): true | string {
                 }
                 break;
             case 'email':
+                if(!val){
+                    continue;
+                }
                 const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 if (!re.test(String(val).toLowerCase())) {
                     return `Validation failed: ${key} must be email`
                 }
                 break;
             case 'list_of_email':
+                if(!val){
+                    continue;
+                }
                 const re1 = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 for (var y of String(val).split(',').map(x => x.trim())) {
                     if (!re1.test(String(y).toLowerCase())) {

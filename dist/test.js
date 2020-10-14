@@ -20,6 +20,8 @@ ut.check(dvalidation_1.validate("x", 1, 'int'), true);
 ut.check(dvalidation_1.validate("x", 1, 'integer'), true);
 ut.check(dvalidation_1.validate("x", 'hello', 'number'), "Validation failed: x must be a number");
 ut.check(dvalidation_1.validate("x", '1', 'in:1,2'), true);
+ut.check(dvalidation_1.validate("x", null, 'string'), true);
+ut.check(dvalidation_1.validate("x", null, 'required|string'), 'Validation failed: The x field is required');
 ut.check(dvalidation_1.validate("x", '2', 'in:1,2'), true);
 ut.check(dvalidation_1.validate("x", '12', 'in:1,2'), 'Validation failed: x should be either of [1,2]');
 ut.check(dvalidation_1.validate("x", null, 'in:1,2'), 'Validation failed: x should be either of [1,2]');

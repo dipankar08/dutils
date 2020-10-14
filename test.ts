@@ -28,6 +28,8 @@ ut.check(validate("x",'hello', 'number'),"Validation failed: x must be a number"
 
 
 ut.check(validate("x",'1', 'in:1,2'),true);
+ut.check(validate("x",null, 'string'),true);
+ut.check(validate("x",null, 'required|string'),'Validation failed: The x field is required');
 ut.check(validate("x",'2', 'in:1,2'),true);
 ut.check(validate("x",'12', 'in:1,2'),'Validation failed: x should be either of [1,2]');
 ut.check(validate("x",null, 'in:1,2'),'Validation failed: x should be either of [1,2]');
