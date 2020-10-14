@@ -7,4 +7,5 @@ __export(require("./dlog"));
 __export(require("./dtelemetry"));
 __export(require("./dtypes"));
 __export(require("./dassert"));
+__export(require("./dvalidation"));
 //# sourceMappingURL=index.js.map
