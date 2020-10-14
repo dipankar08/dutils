@@ -88,7 +88,8 @@ function validate(key, val, rule) {
                 if (!val) {
                     continue;
                 }
-                if (val && !underscore_1.default.isNumber(val)) {
+                let isnum = /^\d+$/.test(val);
+                if (!isnum) {
                     return `Validation failed: ${key} must be a number`;
                 }
                 break;

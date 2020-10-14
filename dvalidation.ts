@@ -87,7 +87,8 @@ export function validate(key: string, val: any, rule: string): true | string {
                 if(!val){
                     continue;
                 }
-                if (val && !_.isNumber(val)) {
+                let isnum = /^\d+$/.test(val);
+                if(!isnum){
                     return `Validation failed: ${key} must be a number`
                 }
                 break;
